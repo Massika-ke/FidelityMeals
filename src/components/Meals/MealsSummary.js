@@ -3,12 +3,11 @@ import styles from "./MealsSummary.module.css";
 const MealsSummary = () => {
   return (
     <section className={styles.summary}>
-      <h2>Delicious Food, Delivered To You</h2>
+      <h2>Exquisite Hotel Food Delivery</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi commodi quibusdam accusamus deleniti.
-      </p>
+        Our food delivery service transforms room dining from a mere necessity into a delightful culinary journey.</p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptate quisquam deleniti!.
+       Our team ensures every guest experiences comfort, convenience, and exceptional taste!.
       </p>
     </section>
   );
