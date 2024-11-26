@@ -38,12 +38,34 @@ const cartReducer = (state, action)=>{
       totalAmount: updatedTotalAmount,
     };
   }
+//Removing Items
+  if (action.type === 'REMOVE') {
+    const existingCartItemIndex = state.items.findIndex((item) => item.id === action.id);
+
+    const existingItem = state.items[existingCartItemIndex];
+    const updatedTotalAmount = state.totalAmount - existingItem.price;
+// Remove Item from cart if < 1
+    let updatedItems;
+    if (existingItem.amount === 1) {
+      updatedItems = state.items.filter(item => item.id !== action.id);
+    } 
+// Decrease the Item if > 1
+    else {
+      const updatedItem = {...existingItem, amount: existingItem.amount -1};
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+    }
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount
+    }
+  };
   return defaultCartState;
 }
 
 // Context provider method + initialised object values
 const CartProvider = (props) => {
-  const[cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState);
+  const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState);
 // Add to cart handler function
     const addToCart =(item)=>{
       dispatchCartAction({type: 'ADD', item: item});
