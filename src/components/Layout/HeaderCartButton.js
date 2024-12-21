@@ -13,11 +13,12 @@ const HeaderCartButton = props =>{
 // Access cartcontext from CartProvider
     const cartCtx = useContext(CartContext);
 // Update cart items method
+    const {items} = cartCtx;
+
     const numOfCartItems = cartCtx.items.reduce((curNumber, item) =>{
         return curNumber + item.amount;
     }, 0);
 
-    const {items} = cartCtx;
     const btnClasses = `${styles.button} ${highlightBtn ? styles.bump : ''}`;
 
     useEffect(() => {
