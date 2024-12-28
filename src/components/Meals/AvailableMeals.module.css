@@ -9,6 +9,16 @@
     margin: 0;
     padding: 0;
 }
+.mealsLoad{
+    text-align: center;
+    color: aqua;
+    
+}
+.httpsError{
+    text-align: center;
+    color: tomato;
+    
+}
 
 @keyframes meals-appear {
     from {
